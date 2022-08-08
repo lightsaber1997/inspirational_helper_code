@@ -1,0 +1,20 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.example.demo.user.CustomUserDetailsDAO"><select id="selectUserDetailsList" resultType="com.example.demo.user.CustomUserDetails">
+select
+	*
+from
+	`CustomUserDetails`
+</select><select id="selectUserByLoginId" resultType="com.example.demo.user.CustomUserDetails">
+select
+	*
+from
+	`CustomUserDetails`
+where
+loginId = #{loginId}
+</select><insert id="insertUser">
+insert into
+	`CustomUserDetails`
+	(id, loginId, encryptedPassword, email, phoneNumber, authority, userNameInApp, realName)
+values
+	(#{id}, #{loginId}, #{encryptedPassword}, #{email}, #{phoneNumber}, #{authority}, #{userNameInApp}, #{realName})
+</insert></mapper>
