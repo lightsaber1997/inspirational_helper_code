@@ -10,3 +10,6 @@ CREATE TABLE `user` (
     `createdAt` timestamp DEFAULT CURRENT_TIMESTAMP,
     `updatedAt` timestamp DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+select * from `user`;
