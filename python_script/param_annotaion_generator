@@ -1,0 +1,28 @@
+def insert_param_annotation(list_line):
+    result = []
+    for line in list_line:
+        line = line.strip()
+        # change all multiple white space to a
+        # sigle space
+        line = ' '.join(line.split())
+        if line.find(",") >= 0:
+            line = line[:-1]
+        param_name = line.split()[1]
+        index = param_name.find(";")
+        param_name = param_name[:index]
+        index = param_name.find(")")
+        param_name = param_name[:index]
+        line = f"@Param(\"{param_name}\") " + line
+        result.append(line)
+    s = ""
+    for i in range(len(result)):
+        line = result[i]
+        s += line
+        if i < len(result) - 1:
+            s += ","
+        s += "\n"
+    return s
+f = open("input_param.txt", 'r')
+list_line = f.readlines()
+print(insert_param_annotation(list_line))
+f.close()

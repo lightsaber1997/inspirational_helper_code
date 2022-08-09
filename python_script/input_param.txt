@@ -1,0 +1,7 @@
+			String loginId, 
+			String password, 
+			String email, 
+			String phoneNumber, 
+			String authority, 
+			String userNameInApp, 
+			String realName);
