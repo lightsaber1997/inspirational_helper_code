@@ -1,10 +1,4 @@
 id int AI PK 
-loginId varchar(50) 
-encryptedPassword varchar(512) 
-email varchar(256) 
-phoneNumber varchar(64) 
-authority varchar(20) 
-userNameInApp varchar(56) 
-realName varchar(56) 
+subjectName varchar(50) 
 createdAt timestamp 
 updatedAt timestamp

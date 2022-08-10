@@ -1,34 +1,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.inspirational.user.UserDAO"><select id="selectUserList" resultType="com.inspirational.user.User">
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.inspirational.subject.SubjectDAO"><select id="selectAll" resultType="com.inspirational.subject.Subject">
 select
 	*
 from
-	`user`
-</select><select id="selectUserById" resultType="com.inspirational.user.User">
+	`subject`
+</select><select id="selectById" resultType="com.inspirational.subject.Subject">
 select
 	*
 from
-	`user`
+	`subject`
 where
 id = #{id}
-</select><select id="selectUserByLoginId" resultType="com.inspirational.user.User">
+</select><select id="selectBySubjectName" resultType="com.inspirational.subject.Subject">
 select
 	*
 from
-	`user`
+	`subject`
 where
-loginId = #{loginId}
-</select><select id="selectUserByUserNameInApp" resultType="com.inspirational.user.User">
-select
-	*
-from
-	`user`
-where
-userNameInApp = #{userNameInApp}
-</select><insert id="insertUser">
-insert into
-	`user`
-	(loginId, encryptedPassword, email, phoneNumber, authority, userNameInApp, realName)
-values
-	(#{loginId}, #{encryptedPassword}, #{email}, #{phoneNumber}, #{authority}, #{userNameInApp}, #{realName})
-</insert></mapper>
+subjectName = #{subjectName}
+</select></mapper>
