@@ -5,6 +5,6 @@ email varchar(256)
 phoneNumber varchar(64) 
 authority varchar(20) 
 userNameInApp varchar(56) 
-name varchar(56) 
+realName varchar(56) 
 createdAt timestamp 
 updatedAt timestamp
