@@ -1,21 +1,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.inspirational.subject.SubjectDAO"><select id="selectAll" resultType="com.inspirational.subject.Subject">
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.inspirational.koreaSiGuDong.KoreaSiGuDongDAO"><select id="selectAll" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
 select
 	*
 from
-	`subject`
-</select><select id="selectById" resultType="com.inspirational.subject.Subject">
+	`korea_sigudong`
+</select><select id="selectById" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
 select
 	*
 from
-	`subject`
+	`korea_sigudong`
 where
 id = #{id}
-</select><select id="selectBySubjectName" resultType="com.inspirational.subject.Subject">
+</select><select id="selectBySi" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
 select
 	*
 from
-	`subject`
+	`korea_sigudong`
 where
-subjectName = #{subjectName}
+si = #{si}
+</select><select id="selectBySiAndGu" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
+select
+	*
+from
+	`korea_sigudong`
+where
+si = #{si} and
+gu = #{gu}
+</select><select id="selectBySiAndGuAndDong" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
+select
+	*
+from
+	`korea_sigudong`
+where
+si = #{si} and
+gu = #{gu} and
+dong = #{dong}
 </select></mapper>

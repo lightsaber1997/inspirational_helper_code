@@ -1,4 +1,6 @@
 id int AI PK 
-subjectName varchar(50) 
+si varchar(50) 
+gu varchar(512) 
+dong varchar(256) 
 createdAt timestamp 
 updatedAt timestamp

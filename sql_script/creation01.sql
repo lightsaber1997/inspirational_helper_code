@@ -64,3 +64,22 @@ values
 ("미술"),
 ("체육"),
 ("기타");
+
+CREATE TABLE `lesson_request` (
+	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`studentId` int NOT NULL,
+	`gradeId` int,
+	`mainContent` text,
+	`usePhoneNumber` int,
+    `createdAt` timestamp DEFAULT CURRENT_TIMESTAMP,
+    `updatedAt` timestamp DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE `lesson_request_subject` (
+	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`lessonRequestId` int NOT NULL,
+	`subjectId` int,
+    `createdAt` timestamp DEFAULT CURRENT_TIMESTAMP,
+    `updatedAt` timestamp DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -83,6 +83,26 @@ def create_xml_object(list_method, path_to_dao, path_to_data_object, table_name)
                 element1.text =  f"\ndelete from\n\t`{table_name}`\nwhere\n{after_where}\n"
         except:
             pass
+
+        try:
+            if method_name.find("update") == 0:
+                element1 = ET.SubElement(xml_data, "update")
+                element1.set("id", method_name)
+                part1 = f"\nupdate\n\t`{table_name}`\nset\n"
+                part2 = ""
+                for i in range(len(parameter_names)):
+                    parameter_name = parameter_names[i]
+                    part2 += f"{parameter_name} = #{{{parameter_name}}}"
+                    
+                    if i < (len(parameter_names) - 1):
+                        part2 += ",\n"
+                part2 += "\n"
+                part3 = "where\n"
+                # part4 = "\t("
+                
+                element1.text = f"{part1}{part2}{part3}"
+        except:
+            pass
     return xml_data
 
 
@@ -138,14 +158,16 @@ def dao_to_mapper(java_code_file_name, table_name=""):
     for method in list_method:
         return_type = method[0]
         method_name = method[1]
+        
         if method_name.find("select") == 0:
             if return_type.find("<") >= 0:
                 index1 = return_type.find("<")
                 index2 = return_type.find(">")
-                data_transfer_object_name = return_type[index1:index2]
+                data_transfer_object_name = return_type[index1+1:index2]
+                
             else:
                 data_transfer_object_name = return_type
-
+            break
     # find path to the data transfer object
     path_data_object = f"{package_name}.{data_transfer_object_name}"
     java_code = original_code
@@ -174,4 +196,4 @@ def dao_to_mapper(java_code_file_name, table_name=""):
         f.write('<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" \n"http://mybatis.org/dtd/mybatis-3-mapper.dtd">'.encode('utf8'))
         f.write(xml_data_binary)
 
-dao_to_mapper("UserDAO.java", "subject")
+dao_to_mapper("UserDAO.java", "korea_sigudong")

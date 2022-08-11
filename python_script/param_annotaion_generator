@@ -8,10 +8,12 @@ def insert_param_annotation(list_line):
         if line.find(",") >= 0:
             line = line[:-1]
         param_name = line.split()[1]
+
         index = param_name.find(";")
-        param_name = param_name[:index]
-        index = param_name.find(")")
-        param_name = param_name[:index]
+        if index >= 0:
+            param_name = param_name[:index]
+            index = param_name.find(")")
+            param_name = param_name[:index]
         line = f"@Param(\"{param_name}\") " + line
         result.append(line)
     s = ""
