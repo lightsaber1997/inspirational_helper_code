@@ -196,4 +196,4 @@ def dao_to_mapper(java_code_file_name, table_name=""):
         f.write('<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" \n"http://mybatis.org/dtd/mybatis-3-mapper.dtd">'.encode('utf8'))
         f.write(xml_data_binary)
 
-dao_to_mapper("UserDAO.java", "korea_sigudong")
+dao_to_mapper("UserDAO.java", "lesson_request_location")

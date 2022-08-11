@@ -1,6 +1,5 @@
 id int AI PK 
-si varchar(50) 
-gu varchar(512) 
-dong varchar(256) 
+lessonRequestId int 
+locationId int 
 createdAt timestamp 
 updatedAt timestamp

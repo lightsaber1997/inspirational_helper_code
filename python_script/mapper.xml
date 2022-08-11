@@ -1,38 +1,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.inspirational.koreaSiGuDong.KoreaSiGuDongDAO"><select id="selectAll" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.inspirational.lessonRequest.LessonRequestLocationDAO"><select id="selectAll" resultType="com.inspirational.lessonRequest.LessonRequest">
 select
 	*
 from
-	`korea_sigudong`
-</select><select id="selectById" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
+	`lesson_request_location`
+</select><select id="selectById" resultType="com.inspirational.lessonRequest.LessonRequest">
 select
 	*
 from
-	`korea_sigudong`
+	`lesson_request_location`
 where
 id = #{id}
-</select><select id="selectBySi" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
+</select><select id="selectByLessonRequestId" resultType="com.inspirational.lessonRequest.LessonRequest">
 select
 	*
 from
-	`korea_sigudong`
+	`lesson_request_location`
 where
-si = #{si}
-</select><select id="selectBySiAndGu" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
+lessonRequestId = #{lessonRequestId}
+</select><select id="selectByLocationId" resultType="com.inspirational.lessonRequest.LessonRequest">
 select
 	*
 from
-	`korea_sigudong`
+	`lesson_request_location`
 where
-si = #{si} and
-gu = #{gu}
-</select><select id="selectBySiAndGuAndDong" resultType="com.inspirational.koreaSiGuDong.KoreaSiGuDong">
+locationId = #{locationId}
+</select><select id="selectByLessonRequestIdAndLocationId" resultType="com.inspirational.lessonRequest.LessonRequest">
 select
 	*
 from
-	`korea_sigudong`
+	`lesson_request_location`
 where
-si = #{si} and
-gu = #{gu} and
-dong = #{dong}
-</select></mapper>
+lessonRequestId = #{lessonRequestId} and
+locationId = #{locationId}
+</select><insert id="insert">
+insert into
+	`lesson_request_location`
+	(lessonRequestId, locationId)
+values
+	(#{lessonRequestId}, #{locationId})
+</insert></mapper>
